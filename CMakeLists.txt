@@ -1,2 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 project(simulates VERSION 0.1.0 LANGUAGES CXX)
+add_library(simulates INTERFACE)
+add_library(simulates::simulates ALIAS simulates)
+target_include_directories(simulates INTERFACE include)
+target_compile_features(simulates INTERFACE cxx_std_23)

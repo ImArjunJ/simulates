@@ -4,3 +4,8 @@ add_library(simulates INTERFACE)
 add_library(simulates::simulates ALIAS simulates)
 target_include_directories(simulates INTERFACE include)
 target_compile_features(simulates INTERFACE cxx_std_23)
+
+if(PROJECT_IS_TOP_LEVEL)
+  add_executable(simulates_examples examples/main.cpp examples/life.cpp examples/particles.cpp examples/civilisation.cpp)
+  target_link_libraries(simulates_examples PRIVATE simulates)
+endif()
